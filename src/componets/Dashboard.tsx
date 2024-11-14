@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Book, Users } from 'lucide-react';
+import { Book, Users, BookOpen } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
 import { useClubStore } from '../store/clubStore';
 import { useUserStore } from '../store/userStore';
@@ -71,7 +71,13 @@ export default function Dashboard() {
         )}
       </div>
 
-      
+      <div className="bg-white rounded-lg shadow-sm p-6">
+        <div className="flex items-center gap-2 mb-4">
+          <BookOpen className="w-5 h-5 text-indigo-600" />
+          <h2 className="text-xl font-semibold">Reading Activity</h2>
+        </div>
+        <p className="text-gray-600">No recent reading activity.</p>
+      </div>
     </div>
   );
 }
