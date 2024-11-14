@@ -73,6 +73,19 @@ const UserProfileModal: React.FC<UserProfileModalProps> = ({ user, onClose }) =>
               <div className="text-sm text-gray-600">Books</div>
             </div>
           </div>
+
+          {currentUser && currentUser.id !== user.id && (
+            <button
+              onClick={handleFollowToggle}
+              className={`w-full py-2 px-4 rounded-md transition-colors ${
+                isFollowing
+                  ? 'bg-red-100 text-red-700 hover:bg-red-200'
+                  : 'bg-indigo-600 text-white hover:bg-indigo-700'
+              }`}
+            >
+              {isFollowing ? 'Unfollow' : 'Follow'}
+            </button>
+          )}
         </div>
       </div>
     </div>
