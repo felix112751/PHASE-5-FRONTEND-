@@ -36,3 +36,40 @@ export default function UserCard({ user, isFollowing }: UserCardProps) {
             <BookOpen className="w-4 h-4" />
             <span>{user.booksRead.length} books read</span>
           </div>
+          <button
+            onClick={handleFollowToggle}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              isFollowing
+                ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                : 'bg-indigo-600 text-white hover:bg-indigo-700'
+            }`}
+          >
+            {isFollowing ? (
+              <>
+                <UserMinus className="w-4 h-4" />
+                Unfollow
+              </>
+            ) : (
+              <>
+                <UserPlus className="w-4 h-4" />
+                Follow
+              </>
+            )}
+          </button>
+        </div>
+      </div>
+      <div className="mt-4">
+        <div className="flex flex-wrap gap-2">
+          {user.favoriteGenres.map(genre => (
+            <span
+              key={genre}
+              className="inline-block px-2 py-1 text-xs font-medium bg-indigo-100 text-indigo-800 rounded-full"
+            >
+              {genre}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
