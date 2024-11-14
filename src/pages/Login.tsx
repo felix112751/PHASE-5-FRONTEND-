@@ -136,6 +136,12 @@ const Login: React.FC = () => {
               Sign in
             </button>
           </div>
+
+          <div className="text-sm text-center text-gray-600">
+            <p>Demo Credentials:</p>
+            <p>Admin: admin@bookclub.com / admin</p>
+            <p>User: user@bookclub.com / user</p>
+          </div>
         </form>
       </div>
     </div>
