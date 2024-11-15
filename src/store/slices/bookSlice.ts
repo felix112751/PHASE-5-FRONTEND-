@@ -37,3 +37,23 @@ const initialBooks: Book[] = [
     loading: false,
   };
   
+  const bookSlice = createSlice({
+    name: 'books',
+    initialState,
+    reducers: {
+      setBooks: (state, action: PayloadAction<Book[]>) => {
+        state.books = action.payload;
+      },
+      addBook: (state, action: PayloadAction<Book>) => {
+        state.books.push(action.payload);
+      },
+      addToUserBooks: (state, action: PayloadAction<Book>) => {
+        if (!state.userBooks.some(book => book.id === action.payload.id)) {
+          state.userBooks.push(action.payload);
+        }
+      },
+      addToCurrentlyReading: (state, action: PayloadAction<Book>) => {
+        if (!state.currentlyReading.some(book => book.id === action.payload.id)) {
+          state.currentlyReading.push(action.payload);
+        }
+      },
