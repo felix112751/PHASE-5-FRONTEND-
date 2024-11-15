@@ -94,3 +94,47 @@ const BookClubDetail: React.FC = () => {
           )}
         </div>
       </div>
+
+       {/* Currently Reading Section */}
+       <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold">Currently Reading</h2>
+          {!club.currentBook && (
+            <button
+              onClick={() => setShowAddBookModal(true)}
+              className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-700"
+            >
+              <Plus className="h-5 w-5" />
+              <span>Add Book</span>
+            </button>
+          )}
+        </div>
+
+        {club.currentBook ? (
+          <div className="flex items-start space-x-6">
+            <img
+              src={club.currentBook.coverImage}
+              alt={club.currentBook.title}
+              className="w-32 h-48 object-cover rounded-lg shadow-md"
+            />
+            <div className="flex-1">
+              <h3 className="text-xl font-semibold mb-2">{club.currentBook.title}</h3>
+              <p className="text-gray-600 mb-4">{club.currentBook.author}</p>
+              <p className="text-gray-700 mb-4">{club.currentBook.description}</p>
+              <button
+                onClick={handleMarkAsRead}
+                className="flex items-center space-x-2 text-green-600 hover:text-green-700"
+              >
+                <Check className="h-5 w-5" />
+                <span>Mark as Read</span>
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="text-center py-12 bg-gray-50 rounded-lg">
+            <BookOpen className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+            <p className="text-gray-600">No book currently being read</p>
+            <p className="text-gray-500 text-sm">Add a book to get started</p>
+          </div>
+        )}
+      </div>
