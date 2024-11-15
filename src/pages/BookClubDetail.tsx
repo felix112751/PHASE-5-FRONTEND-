@@ -220,3 +220,22 @@ const BookClubDetail: React.FC = () => {
         </form>
       </div>
 
+      <AddBookModal
+        isOpen={showAddBookModal}
+        onClose={() => setShowAddBookModal(false)}
+        type="reading"
+        onAdd={(book) => {
+          dispatch(updateBookClubBooks({
+            clubId: club.id,
+            currentBook: book,
+            readBooks: club.readBooks || []
+          }));
+          setShowAddBookModal(false);
+        }}
+      />
+    </div>
+  );
+};
+
+export default BookClubDetail;
+
