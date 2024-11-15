@@ -78,3 +78,15 @@ const initialBooks: Book[] = [
       },
     },
   });
+
+  export const { 
+    setBooks, 
+    addBook, 
+    addToUserBooks,
+    addToCurrentlyReading,
+    markAsRead,
+    addSummary, 
+    addReview, 
+    setLoading 
+  } = bookSlice.actions;
+  export default bookSlice.reducer;
