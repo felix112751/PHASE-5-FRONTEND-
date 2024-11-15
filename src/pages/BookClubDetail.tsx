@@ -54,3 +54,43 @@ const BookClubDetail: React.FC = () => {
     setComment('');
     setRating(5);
   };
+
+  const handleMarkAsRead = () => {
+    if (!club.currentBook) return;
+    
+    dispatch(updateBookClubBooks({
+      clubId: club.id,
+      currentBook: null,
+      readBooks: [...(club.readBooks || []), club.currentBook]
+    }));
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto">
+      <div className="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+        <div 
+          className="h-64 bg-cover bg-center"
+          style={{ backgroundImage: `url(${club.coverImage})` }}
+        />
+        <div className="p-6">
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">{club.name}</h1>
+          <p className="text-gray-600 mb-6">{club.description}</p>
+          
+          <div className="flex items-center space-x-4 mb-6">
+            <button
+              onClick={() => setShowMembers(!showMembers)}
+              className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-700"
+            >
+              <Users className="h-5 w-5" />
+              <span>{club.members.length} members</span>
+            </button>
+          </div>
+
+          {showMembers && (
+            <div className="mt-6">
+              <h2 className="text-xl font-semibold mb-4">Club Members</h2>
+              <MemberList members={club.members} />
+            </div>
+          )}
+        </div>
+      </div>
