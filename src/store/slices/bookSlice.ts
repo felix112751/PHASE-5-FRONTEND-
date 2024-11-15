@@ -57,3 +57,24 @@ const initialBooks: Book[] = [
           state.currentlyReading.push(action.payload);
         }
       },
+
+      markAsRead: (state, action: PayloadAction<string>) => {
+        const book = state.currentlyReading.find(b => b.id === action.payload);
+        if (book) {
+          state.currentlyReading = state.currentlyReading.filter(b => b.id !== action.payload);
+          if (!state.userBooks.some(b => b.id === action.payload)) {
+            state.userBooks.push(book);
+          }
+        }
+      },
+      addSummary: (state, action: PayloadAction<BookSummary>) => {
+        state.summaries.push(action.payload);
+      },
+      addReview: (state, action: PayloadAction<Review>) => {
+        state.reviews.push(action.payload);
+      },
+      setLoading: (state, action: PayloadAction<boolean>) => {
+        state.loading = action.payload;
+      },
+    },
+  });
