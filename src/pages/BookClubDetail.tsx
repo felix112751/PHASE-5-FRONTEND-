@@ -37,3 +37,20 @@ const BookClubDetail: React.FC = () => {
     }));
     setSummary('');
   };
+
+
+  const handleSubmitReview = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!user) return;
+
+    dispatch(addReview({
+      id: Math.random().toString(36).substr(2, 9),
+      rating,
+      comment,
+      userId: user.id,
+      clubId: club.id,
+      createdAt: new Date().toISOString(),
+    }));
+    setComment('');
+    setRating(5);
+  };
