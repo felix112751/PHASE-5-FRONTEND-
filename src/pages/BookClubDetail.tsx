@@ -182,3 +182,41 @@ const BookClubDetail: React.FC = () => {
           </form>
         </div>
       )}
+
+<div className="bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-2xl font-bold mb-4">Club Review</h2>
+        <form onSubmit={handleSubmitReview}>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Rating
+            </label>
+            <div className="flex items-center space-x-2">
+              {[1, 2, 3, 4, 5].map((value) => (
+                <button
+                  key={value}
+                  type="button"
+                  onClick={() => setRating(value)}
+                  className={`p-1 ${rating >= value ? 'text-yellow-400' : 'text-gray-300'}`}
+                >
+                  <Star className="h-6 w-6 fill-current" />
+                </button>
+              ))}
+            </div>
+          </div>
+          <textarea
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md mb-4"
+            rows={4}
+            placeholder="Share your experience with this book club..."
+            required
+          />
+          <button
+            type="submit"
+            className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+          >
+            Submit Review
+          </button>
+        </form>
+      </div>
+
