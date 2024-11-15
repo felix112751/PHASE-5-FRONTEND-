@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import Layout from './componets/Layout';
+import Layout from './components/Layout';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -11,8 +11,8 @@ import BookClubs from './pages/BookClubs';
 import CreateBookClub from './pages/CreateBookClub';
 import BookClubDetail from './pages/BookClubDetail';
 import AdminDashboard from './pages/AdminDashboard';
-import PrivateRoute from './componets/PrivateRoute';
-import AdminRoute from './componets/AdminRoute';
+import PrivateRoute from './components/PrivateRoute';
+import AdminRoute from './components/AdminRoute';
 
 function App() {
   return (
