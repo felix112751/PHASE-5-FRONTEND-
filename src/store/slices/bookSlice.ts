@@ -27,3 +27,13 @@ const initialBooks: Book[] = [
       description: 'Four unlikely friends meet weekly to solve cold cases...',
     }
   ];
+
+  const initialState: BookState = {
+    books: initialBooks,
+    userBooks: [],
+    currentlyReading: [],
+    summaries: [],
+    reviews: [],
+    loading: false,
+  };
+  
