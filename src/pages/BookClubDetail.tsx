@@ -5,8 +5,8 @@ import { BookOpen, Users, Star, MessageSquare, Plus, Check } from 'lucide-react'
 import { RootState } from '../store';
 import { addSummary, addReview } from '../store/slices/bookSlice';
 import { updateBookClubBooks } from '../store/slices/bookClubSlice';
-import MemberList from '../components/MemberList';
-import AddBookModal from '../components/AddBookModal';
+import MemberList from '../componets/MemberList';
+import AddBookModal from '../componets/AddBookModal';
 
 const BookClubDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();

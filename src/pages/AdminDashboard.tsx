@@ -30,8 +30,9 @@ const AdminDashboard: React.FC = () => {
           <h3 className="text-lg font-semibold mb-2">Book Summaries</h3>
           <p className="text-3xl font-bold text-gray-900">{summaries.length}</p>
         </div>
+      </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-bold mb-4">Recent Book Clubs</h2>
           <div className="space-y-4">
@@ -67,7 +68,7 @@ const AdminDashboard: React.FC = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   );
 };

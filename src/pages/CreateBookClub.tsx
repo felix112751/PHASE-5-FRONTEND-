@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Book, Plus, BookOpen, Library } from 'lucide-react';
 import { addBookClub } from '../store/slices/bookClubSlice';
 import { RootState } from '../store';
-import AddBookModal from '../components/AddBookModal';
+import AddBookModal from '../componets/AddBookModal';
 import type { Book as BookType } from '../types';
 
 const CreateBookClub: React.FC = () => {
