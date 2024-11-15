@@ -138,3 +138,47 @@ const BookClubDetail: React.FC = () => {
           </div>
         )}
       </div>
+
+      {/* Reading History */}
+      {club.readBooks && club.readBooks.length > 0 && (
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-2xl font-bold mb-6">Reading History</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {club.readBooks.map((book) => (
+              <div key={book.id} className="flex space-x-4 bg-gray-50 p-4 rounded-lg">
+                <img
+                  src={book.coverImage}
+                  alt={book.title}
+                  className="w-24 h-32 object-cover rounded-md"
+                />
+                <div>
+                  <h3 className="font-semibold text-gray-900">{book.title}</h3>
+                  <p className="text-gray-600 text-sm">{book.author}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {club.currentBook && (
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-2xl font-bold mb-4">Book Summary</h2>
+          <form onSubmit={handleSubmitSummary}>
+            <textarea
+              value={summary}
+              onChange={(e) => setSummary(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md mb-4"
+              rows={4}
+              placeholder="Share your thoughts about the book..."
+              required
+            />
+            <button
+              type="submit"
+              className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+            >
+              Submit Summary
+            </button>
+          </form>
+        </div>
+      )}
