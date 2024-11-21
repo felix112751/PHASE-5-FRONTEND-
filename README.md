@@ -1,4 +1,6 @@
 Book Club App
+
+
 Welcome to the Book Club App! This application allows users to create and manage book clubs, share book recommendations, and engage in discussions about their favorite reads. Built with modern web technologies, this app is designed to provide a seamless experience for book lovers.
 
 Tech Stack
